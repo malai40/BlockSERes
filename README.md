@@ -1,4 +1,8 @@
 # BlockSERes
 Block search engine results from user-supplied list of websites
 
-# Version 0.1.0
+# Details
+List of supported search engines:
+1) Google (any domain version works, including google.com and google.co.uk)
+
+Version 0.1.0
