@@ -1,0 +1,50 @@
+{
+  "author": "malai40",
+  
+  "applications": {
+    "gecko": {
+      "id": "fc3f947c6d546a5272b75c047711e3c874fd8dcd@test.com"
+    }
+  },
+  
+  "manifest_version": 2,
+  "name": "BlockSEResults",
+  "version": "1.0",
+  
+  "background": { 
+  	"scripts": ["google_howToBlock.js"]
+  },
+
+  "description": "Blocks search results from specified domains.",
+
+  "icons": {
+    "48": "icons/blockSERes-48.png",
+    "96": "icons/blockSERes-96.png"
+  },
+
+  "content_scripts": [
+    {
+       "matches": ["*://*/*"],
+       "include_globs": [
+            "*://*.google.*/*"
+        ],
+       "js": [
+       		"removeSERes.js"
+       		]
+    }
+  ],
+  
+  "options_ui": {
+  	"open_in_tab": true,
+  	"page": "settings/preferences.html"
+  },
+  
+  "permissions": ["storage"],
+  
+  "browser_specific_settings": {
+  	"gecko": {
+  		"id": "fc3f947c6d546a5272b75c047711e3c874fd8dcd@test.com"
+  	}
+  }
+
+}
