@@ -7,17 +7,16 @@
     }
   },
   
-  "manifest_version": 2,
-  "name": "BlockSEResults",
-  "version": "1.0",
-
-  "description": "Blocks search results from specified domains.",
-
-  "icons": {
-    "48": "icons/blockSERes-48.png",
-    "96": "icons/blockSERes-96.png"
+  "browser_action": {
+    "default_icon": {
+      "16": "icons/blockSERes-16.png",
+      "20": "icons/blockSERes-20.png",
+      "32": "icons/blockSERes-32.png",
+      "40": "icons/blockSERes-40.png"
+    },
+    "default_title": "Block Search Engine Results"
   },
-
+  
   "content_scripts": [
     {
        "matches": ["*://*/*"],
@@ -30,6 +29,20 @@
     }
   ],
   
+  "description": "Blocks search results from specified domains.",
+  
+  "icons": {
+  	"16": "icons/blockSERes-16.png",
+  	"32": "icons/blockSERes-32.png",
+    "48": "icons/blockSERes-48.png",
+    "64": "icons/blockSERes-64.png",
+    "96": "icons/blockSERes-96.png"
+  },
+  
+  "manifest_version": 2,
+  
+  "name": "Block Search Engine Results",
+  
   "options_ui": {
   	"open_in_tab": true,
   	"page": "settings/preferences.html"
@@ -37,10 +50,6 @@
   
   "permissions": ["storage"],
   
-  "browser_specific_settings": {
-  	"gecko": {
-  		"id": "fc3f947c6d546a5272b75c047711e3c874fd8dcd@test.com"
-  	}
-  }
+  "version": "0.1.0"
 
 }
