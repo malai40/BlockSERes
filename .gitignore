@@ -1,5 +1,9 @@
-#macOS hidden file
+# macOS hidden file
 .DS_Store
+
+# git helper files
+.git/
+.gitignore
 
 # Testing folders
 oldScripts/

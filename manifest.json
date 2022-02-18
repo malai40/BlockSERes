@@ -14,18 +14,43 @@
       "32": "icons/blockSERes-32.png",
       "40": "icons/blockSERes-40.png"
     },
-    "default_title": "Block Search Engine Results"
+    "theme_icons": [{
+      "light": "icons/blockSERes-16-light.png",
+      "dark": "icons/blockSERes-16.png",
+      "size": 16
+    }],
+    "default_title": "Block Search Engine Results",
+    "default_popup": "toolbarPopup/popupWindow.html"
   },
   
   "content_scripts": [
+    {
+    	"matches": ["*://*/*"],
+    	"include_globs": [
+            "*://*.google.*/*",
+            "*://*.bing.*/*"
+        ],
+    	"js": [
+       		"content_scripts/removeSERes.js"
+       	]
+    },
     {
        "matches": ["*://*/*"],
        "include_globs": [
             "*://*.google.*/*"
         ],
        "js": [
-       		"removeSERes.js"
-       		]
+       		"content_scripts/scripts_per_SE/google_howToBlock.js"
+       	]
+    },
+        {
+       "matches": ["*://*/*"],
+       "include_globs": [
+            "*://*.bing.*/*"
+        ],
+       "js": [
+       		"content_scripts/scripts_per_SE/bing_howToBlock.js"
+       	]
     }
   ],
   
