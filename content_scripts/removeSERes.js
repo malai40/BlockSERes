@@ -2,6 +2,7 @@
  * * fed websites.
  * List of supported search engines:
  * * 1) Google (all domains, such as .com and .co.uk) 
+ * * 2) Bing
  */
 
 // Read in scripts to define how to block per search engine (SE)
