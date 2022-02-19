@@ -17,14 +17,15 @@ function googleBlock(numRemoved, blockedSites) {
 			// Below is old way by seeing if following classes are present.
 			//if (resultsRemove[j].parentElement.className == 'yuRUbf' || resultsRemove[j].parentElement.parentElement.className == 'usJj9c' || resultsRemove[j].parentElement.className == 'vLK3gc') {
 			// If this is an image results page:
-			if (/tbm=isch/.test(currUrl)) {
+			if (/tbm=isch/.test(currUrl)) { //This URL can't be replicated in an honest search because '=' is always translated to '%3D' in a search query in the URL.
 				// Looking for the following results:
 				// resultsRemove[j].parentElement.className == 'isv-r PNCib MSM1fd BUooTd'
 				try {
 					resultsRemove[j].parentElement.remove();
 					numRemoved++;
 				} catch (error) {
-					console.log(error);
+					// console.log(error);
+					console.log('Result pertaining to ' + resultsRemove[j].innerHTML + ' already removed.');
 				}
 				// TODO: What to do to keep removing images with endless scroll?
 				// TODO: Show number of blocked results
@@ -37,7 +38,8 @@ function googleBlock(numRemoved, blockedSites) {
 					resultsRemove[j].parentElement.parentElement.parentElement.parentElement.remove();
 					numRemoved++;
 				} catch (error) {
-					console.log(error);
+					// console.log(error);
+					console.log('Result pertaining to ' + resultsRemove[j].innerHTML + ' already removed.');
 				}
 			// Else if videos results page:
 			} else if (/tbm=vid/.test(currUrl)) {
@@ -47,7 +49,8 @@ function googleBlock(numRemoved, blockedSites) {
 					resultsRemove[j].parentElement.parentElement.parentElement.remove();
 					numRemoved++;
 				} catch (error) {
-					console.log(error);
+					// console.log(error);
+					console.log('Result pertaining to ' + resultsRemove[j].innerHTML + ' already removed.');
 				}
 			// Else if shopping results page:
 			} else if (/tbm=shop/.test(currUrl)) {
@@ -57,7 +60,8 @@ function googleBlock(numRemoved, blockedSites) {
 					resultsRemove[j].parentElement.parentElement.parentElement.parentElement.parentElement.remove();
 					numRemoved++;
 				} catch (error) {
-					console.log(error);
+					// console.log(error);
+					console.log('Result pertaining to ' + resultsRemove[j].innerHTML + ' already removed.');
 				}
 				// TODO: Show number of blocked results
 			// Else if books results page:
@@ -68,7 +72,8 @@ function googleBlock(numRemoved, blockedSites) {
 					resultsRemove[j].parentElement.remove();
 					numRemoved++;
 				} catch (error) {
-					console.log(error);
+					// console.log(error);
+					console.log('Result pertaining to ' + resultsRemove[j].innerHTML + ' already removed.');
 				}
 				// TODO: Show number of blocked results
 			// Else if finance results page:
@@ -78,7 +83,8 @@ function googleBlock(numRemoved, blockedSites) {
 					resultsRemove[j].remove();
 					numRemoved++;
 				} catch (error) {
-					console.log(error);
+					// console.log(error);
+					console.log('Result pertaining to ' + resultsRemove[j].innerHTML + ' already removed.');
 				}
 			// Else if All results page:
 			} else if (/search/.test(currUrl)) {
@@ -89,12 +95,13 @@ function googleBlock(numRemoved, blockedSites) {
 					resultsRemove[j].parentElement.parentElement.parentElement.parentElement.remove();
 					numRemoved++;
 				} catch (error) {
-					console.log(error);
+					// console.log(error);
+					console.log('Result pertaining to ' + resultsRemove[j].innerHTML + ' already removed.');
 				}
 			}
 		}
 	}
-
+/*
 	var resultsSingPlur;
 	if (numRemoved == 1) {
 		resultsSingPlur = 'result';
@@ -103,5 +110,7 @@ function googleBlock(numRemoved, blockedSites) {
 	}
 	var resultStats = document.querySelector('#result-stats');
 	resultStats.innerHTML = resultStats.innerHTML.substring(0, resultStats.innerHTML.length - 13) + '. Blocked ' + numRemoved + ' ' + resultsSingPlur + ' on this page.' + resultStats.innerHTML.substring(resultStats.innerHTML.length - 13, resultStats.innerHTML.length);
-
+*/
+	googleModifyResultsNumber(currUrl, numRemoved)
+	
 }

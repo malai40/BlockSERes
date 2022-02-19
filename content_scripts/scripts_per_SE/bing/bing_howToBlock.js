@@ -27,7 +27,8 @@ function bingBlock(numRemoved, blockedSites) {
 					resultsRemove[j].parentElement.parentElement.parentElement.parentElement.parentElement.remove();
 					numRemoved++;
 				} catch (error) {
-					console.error(error);
+					// console.error(error);
+					console.log('Result pertaining to ' + resultsRemove[j].innerHTML + ' already removed.');
 				}
 				// TODO: What to do to keep removing images with endless scroll?
 				// TODO: Show number of blocked results
@@ -40,9 +41,10 @@ function bingBlock(numRemoved, blockedSites) {
 					resultsRemove[j].parentElement.parentElement.parentElement.parentElement.parentElement.remove();
 					numRemoved++;
 				} catch (error) { // If resultsRemove includes similar parts of the same results that have already been removed, catch the error from null pointer and continue to process.
-					console.error(error);
+					//console.error(error);
+					console.log('Result pertaining to ' + resultsRemove[j].innerHTML + ' already removed.');
 				}
-				var classToSearchNumberResults = '.rc';
+				//var classToSearchNumberResults = '.rc';
 			// Else if videos results page:
 			} else if (/bing.*\/videos\?q=/.test(currUrl)) {
 				// Looking for the following results:
@@ -52,7 +54,8 @@ function bingBlock(numRemoved, blockedSites) {
 					resultsRemove[j].parentElement.parentElement.parentElement.remove();
 					numRemoved++;
 				} catch (error) {
-					console.error(error);
+					//console.error(error);
+					console.log('Result pertaining to ' + resultsRemove[j].innerHTML + ' already removed.');
 				}
 			// Else if All results page:
 			} else if (/bing.*\/search\?/.test(currUrl)) {
@@ -63,19 +66,24 @@ function bingBlock(numRemoved, blockedSites) {
 					resultsRemove[j].parentElement.parentElement.remove();
 					numRemoved++;
 				} catch (error) {
-					console.error(error);
+					//console.error(error);
+					console.log('Result pertaining to ' + resultsRemove[j].innerHTML + ' already removed.');
 				}
-				var classToSearchNumberResults = '.sb_count';
+				//var classToSearchNumberResults = '.sb_count';
 			}
 		}
 	}
+	/*
 	var resultsSingPlur;
 	if (numRemoved == 1) {
 		resultsSingPlur = 'result';
 	} else {
 		resultsSingPlur = 'results';
 	}
+	var classToSearchNumberResults = bingFindResultsNumber(currUrl);
 	var resultStats = document.querySelector(classToSearchNumberResults);
 	// TODO for All Results page: Turn off text-transform: capitalize in CSS on this class, then re-capitalize "Results" in the first part manually.
 	resultStats.innerHTML = resultStats.innerHTML + '. Blocked ' + numRemoved + ' ' + resultsSingPlur + ' on this page.';
+	*/
+	bingModifyResultsNumber(currUrl, numRemoved);
 }

@@ -31,7 +31,8 @@
             "*://*.bing.*/*"
         ],
     	"js": [
-       		"content_scripts/removeSERes.js"
+       		"content_scripts/removeSERes.js",
+       		"content_scripts/scripts_per_SE/resultsHelperFunctions.js"
        	]
     },
     {
@@ -40,7 +41,8 @@
             "*://*.google.*/*"
         ],
        "js": [
-       		"content_scripts/scripts_per_SE/google_howToBlock.js"
+       		"content_scripts/scripts_per_SE/google/google_howToBlock.js",
+       		"content_scripts/scripts_per_SE/google/google_resultsModDict.js"
        	]
     },
         {
@@ -49,7 +51,8 @@
             "*://*.bing.*/*"
         ],
        "js": [
-       		"content_scripts/scripts_per_SE/bing_howToBlock.js"
+       		"content_scripts/scripts_per_SE/bing/bing_howToBlock.js",
+       		"content_scripts/scripts_per_SE/bing/bing_resultsModDict.js"
        	]
     }
   ],
