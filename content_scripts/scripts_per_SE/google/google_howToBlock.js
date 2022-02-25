@@ -91,6 +91,8 @@ function googleBlock(numRemoved, blockedSites) {
 				// Looking for the following results:
 				// resultsRemove[j] parent class is 'yuRUbf' or 'vLK3gc', or parent's parent class is 'usJj9c'
 				// TODO: Don't hide images in the right-hand blurb unless they match a banned URL
+				// TODO: Make sure that results are being counted properly. Now, the same results counts thrice if there's the link, then a Cache link, then a Translate link.
+				//window.alert(resultsRemove[j].outerHTML);
 				try {
 					resultsRemove[j].parentElement.parentElement.parentElement.parentElement.remove();
 					numRemoved++;

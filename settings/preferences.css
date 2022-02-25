@@ -1,0 +1,64 @@
+/* Style the tab */
+.sidetab {
+  overflow: hidden;
+  border: 1px solid #ccc;
+  background-color: #f1f1f1;
+  position: fixed;
+  height: 250px;
+  width: 140px;
+  top: 200px;
+  left: 10px;
+  padding-top: 10px;
+}
+
+/* Style the buttons that are used to open the tab content */
+.sidetab button {
+  background-color: inherit;
+  float: none;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 15px 15px;
+  transition: 0.3s;
+}
+
+/* Change background color of buttons on hover */
+.sidetab button:hover {
+	background-color: #ddd;
+}
+
+/* Create an active/current tablink class */
+.sidetab button.active {
+  background-color: #ccc;
+  font-weight: bold;
+}
+
+/* Style the tab content */
+.tabcontent {
+  display: none;
+  padding: 6px 12px;
+  position: fixed;
+  border: 1px solid #ccc;
+  left: 151px;
+  top: 50px;
+  min-height: 400px;
+  height: calc(100% - 110px);
+  min-width: 400px;
+  width: calc(100% - 190px);
+  background-color: #f1f1f1;
+}
+
+/* Prevent user from resizing any text input areas */
+.outer-div {
+	height: calc(100% - 100px);
+}
+
+.blocklist {
+	height: calc(100% - 60px);
+}
+
+#textarea-blockedsites {
+	resize: none;
+	width: 100%; 
+	height: calc(100% - 60px);
+}

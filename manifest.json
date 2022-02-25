@@ -1,83 +1,81 @@
 {
-  "author": "malai40",
   
-  "applications": {
-    "gecko": {
-      "id": "fc3f947c6d546a5272b75c047711e3c874fd8dcd@test.com"
-    }
-  },
+	"applications": {
+		"gecko": {
+			"id": "fc3f947c6d546a5272b75c047711e3c874fd8dcd@test.com"
+		}
+	},
   
-  "browser_action": {
-    "default_icon": {
-      "16": "icons/blockSERes-16.png",
-      "20": "icons/blockSERes-20.png",
-      "32": "icons/blockSERes-32.png",
-      "40": "icons/blockSERes-40.png"
-    },
-    "theme_icons": [{
-      "light": "icons/blockSERes-16-light.png",
-      "dark": "icons/blockSERes-16.png",
-      "size": 16
-    }],
-    "default_title": "Block Search Engine Results",
-    "default_popup": "toolbarPopup/popupWindow.html"
-  },
+	"author": "malai40",
   
-  "content_scripts": [
-    {
-    	"matches": ["*://*/*"],
-    	"include_globs": [
-            "*://*.google.*/*",
-            "*://*.bing.*/*"
-        ],
-    	"js": [
-       		"content_scripts/removeSERes.js",
-       		"content_scripts/scripts_per_SE/resultsHelperFunctions.js"
-       	]
-    },
-    {
-       "matches": ["*://*/*"],
-       "include_globs": [
-            "*://*.google.*/*"
-        ],
-       "js": [
-       		"content_scripts/scripts_per_SE/google/google_howToBlock.js",
-       		"content_scripts/scripts_per_SE/google/google_resultsModDict.js"
-       	]
-    },
-        {
-       "matches": ["*://*/*"],
-       "include_globs": [
-            "*://*.bing.*/*"
-        ],
-       "js": [
-       		"content_scripts/scripts_per_SE/bing/bing_howToBlock.js",
-       		"content_scripts/scripts_per_SE/bing/bing_resultsModDict.js"
-       	]
-    }
-  ],
+	"browser_action": {
+		"default_icon": {
+			"16": "icons/blockSERes-16.png",
+			"20": "icons/blockSERes-20.png",
+			"32": "icons/blockSERes-32.png",
+			"40": "icons/blockSERes-40.png"
+		},
+		"theme_icons": [{
+			"light": "icons/blockSERes-16-light.png",
+			"dark": "icons/blockSERes-16.png",
+			"size": 16
+		}],
+		"default_title": "Block Search Engine Results",
+		"default_popup": "settings/preferences.html"
+		},
   
-  "description": "Blocks search results from specified domains.",
+	"content_scripts": [
+		{
+			"matches": ["*://*/*"],
+			"include_globs": [
+				"*://*.google.*/*",
+				"*://*.bing.*/*"
+			],
+			"js": [
+				"content_scripts/removeSERes.js",
+				"content_scripts/scripts_per_SE/resultsHelperFunctions.js"
+			]
+		},
+    	{
+			"matches": ["*://*/*"],
+			"include_globs": ["*://*.google.*/*"],
+			"js": [
+				"content_scripts/scripts_per_SE/google/google_howToBlock.js",
+				"content_scripts/scripts_per_SE/google/google_resultsModDict.js"
+			]
+		},
+		{
+			"matches": ["*://*/*"],
+			"include_globs": ["*://*.bing.*/*"],
+			"js": [
+				"content_scripts/scripts_per_SE/bing/bing_howToBlock.js",
+				"content_scripts/scripts_per_SE/bing/bing_resultsModDict.js"
+			]
+		}
+	],
   
-  "icons": {
-  	"16": "icons/blockSERes-16.png",
-  	"32": "icons/blockSERes-32.png",
-    "48": "icons/blockSERes-48.png",
-    "64": "icons/blockSERes-64.png",
-    "96": "icons/blockSERes-96.png"
-  },
+	"description": "Blocks search results from specified domains.",
   
-  "manifest_version": 2,
+	"icons": {
+		"16": "icons/blockSERes-16.png",
+		"32": "icons/blockSERes-32.png",
+		"48": "icons/blockSERes-48.png",
+		"64": "icons/blockSERes-64.png",
+		"96": "icons/blockSERes-96.png"
+	},
   
-  "name": "Block Search Engine Results",
+	"manifest_version": 2,
   
-  "options_ui": {
-  	"open_in_tab": true,
-  	"page": "settings/preferences.html"
-  },
+	"name": "Block Search Engine Results",
   
-  "permissions": ["storage"],
+	"options_ui": {
+		"browser_style": true,
+		"open_in_tab": true,
+		"page": "settings/preferences.html"
+	},
   
-  "version": "0.1.0"
+	"permissions": ["storage"],
+  
+	"version": "0.2.0"
 
 }

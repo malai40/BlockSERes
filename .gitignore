@@ -1,5 +1,6 @@
 # macOS hidden file
 .DS_Store
+.Rhistory
 
 # git helper files
 .git/

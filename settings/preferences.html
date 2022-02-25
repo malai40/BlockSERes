@@ -1,22 +1,153 @@
-<!doctype html>
+<!--
+//Features:
+// 1. One tab, choose which search engines to enable this on
+// 2. Second tab, choose which websites to block
+// 3. List languages that this supports.
+// 4. "About" page (Name, Author, Version #, License, Contact Info, Github)
+// light blue/gray for base, baby blue for "ON".
+// mobile version you swipe left or right for next page in options
+// Remember which tab left off on.
+-->
+
+<!DOCTYPE html>
 <html>
 <head>
-<meta charset="utf-8">
-<meta name="view" content="width=device-width, initial-scale=1">
-<title>Block Search Engine Results Preferences</title>
+	<meta charset="utf-8">
+	<meta name="view" content="width=device-width, initial-scale=1">
+	<title>
+		Block Search Engine Results Preferences
+	</title>
+    <link rel="stylesheet" href="preferences.css">
 </head>
-<div class="outer-div">
+
 <body style="background-color:grey;">
-<p style="font-family:verdana;color:white;font-size:300%;">Block Search Engine Results</p>
-<p style="font-family:verdana;color:white;font-size:150%;">Preferences</p>
-<p style="font-family:verdana;color:white;font-size:100%;">What sites should be blocked from search results? Write the entire URL, just from the website name to the top-level domain, e.g. "google.com", "pinterest.ca".&nbsp;</p>
-<div class="inner-div">
-  <input type="button" name="save" id="save" value="Save" style="font-family:verdana">
-</div>
-<div class="inner-div">
-	<textarea name="textarea" id="textarea" rows="20" cols="100" placeholder="google.com"></textarea>
-</div>
-<script src="preferences.js"></script>
+
+	<!-- The sidebar design -->
+	<div id="sidebar" class="sidetab">
+		<nav>
+			<ul>
+				<button class="sidetab-button" id="sidetab-button-searcheng">
+					<a href="#search-engines" role="tab" aria-selected="true" tabindex="1" aria-controls="content-general">
+						Search Engines
+					</a>
+				</button>
+				<button class="sidetab-button" id="sidetab-button-blockedsites">
+					<a href="#blocked-sites" role="tab" aria-selected="true" tabindex="2" aria-controls="content-general">
+						Blocked Sites
+					</a>
+				</button>
+				<button class="sidetab-button" id="sidetab-button-lang">
+					<a href="#languages" role="tab" aria-selected="true" tabindex="3" aria-controls="content-general">
+						Languages
+					</a>
+				</button>
+				<button class="sidetab-button" id="sidetab-button-abt">
+					<a href="#about" role="tab" aria-selected="true" tabindex="4" aria-controls="content-general">
+						About
+					</a>
+				</button>
+			</ul>
+		</nav>
+	</div>
+	
+	<main>
+		<!-- Search engines page. User can select which search engines to use the program on. -->
+		<div id="search-engines" class="tabcontent">
+			<header>
+        		<h1>
+        			Search engines
+        		</h1>
+        		<p>
+        			Select which search engines to block websites on.
+        		</p>
+        	</header>
+        	<section class="horiz-section">
+          		<h2></h2>
+          		<ul class="checklist" id="search-engine-list">
+            		<template>
+              			<button data-action="toggle-checked" role="checkbox" class="control-icon" type="button"></button>
+            		</template>
+            		<li role="checklistitem">
+						Google
+					</li>
+					<li role="checklistitem">
+						Bing
+					</li>
+          		</ul>
+        	</section>
+		</div>
+	
+		<!-- Blocked sites page. User can say which sites should be blocked from search results. -->
+		<div id="blocked-sites" class="tabcontent">
+			<div class="outer-div">
+				<h1>Block Search Engine Results</h1>
+				<h2>Preferences</h2>
+				<p>What sites should be blocked from search results? Write the entire URL, just from the website name to the top-level domain, e.g. "google.com", "pinterest.ca".&nbsp;</p>
+				<div class="save-button">
+					<input type="button" name="save" id="save" value="Save" style="font-family:verdana">
+				</div>
+				<div class="blocklist">
+					<textarea name="textarea" id="textarea-blockedsites" placeholder="google.com"></textarea>
+				</div>
+			</div>
+		</div>
+	
+		<!-- Languages page. User can select the language to use. -->
+		<div id="languages" class="tabcontent">
+			<header>
+        		<h1>
+        			Language
+        		</h1>
+        		<p>
+        			Select which language to use the add-on in.
+        		</p>
+        	</header>
+        	<section class="horiz-section">
+          		<h2></h2>
+          		<ul class="radiolist" id="language-list">
+            		<template>
+            			<div>
+              			<input type="radio" id="eng" name="language" value="eng">
+              			<label for="eng">English</label>
+              			</div>
+              			<br>
+              			<div>
+              			<input type="radio" id="esp" name="language" value="esp">
+              			<label for="esp">Español</label>
+              			</div>
+              			<br>
+            		</template>
+          		</ul>
+        	</section>
+		</div>
+	
+		<!-- About page. (Name, Author, Version #, License, Contact Info, Github) -->
+		<div id="about" class="tabcontent">
+			<header>
+				<h1>
+					About
+				</h1>
+				<p>
+					About this add-on:
+				</p>
+			</header>
+			<section class="horiz-section">
+				<p>
+					<!-- (Name, Author, Version #, License, Contact Info, Github) -->
+					Name: Block Search Engine Results
+					<br>
+					Author: <a href="https://github.com/malai40/">malai40</a>
+					<br>
+					Version: 0.2.0
+					<br>
+					License: GNU GENERAL PUBLIC LICENSE Version 3, 29 June 2007
+					<br>
+					Github: <a href="https://github.com/malai40/BlockSERes">Github page</a>
+				</p>
+			</section>
+		</div>
+	</main>
+	
+	<script src="preferences.js"></script>
 </body>
-</div>
 </html>
