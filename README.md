@@ -6,4 +6,4 @@ List of supported search engines:
 1) Google (any domain version works, including google.com and google.co.uk)
 2) Bing
 
-Version 0.2.0
+Version 0.3.0
