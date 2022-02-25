@@ -21,7 +21,7 @@
 			"size": 16
 		}],
 		"default_title": "Block Search Engine Results",
-		"default_popup": "settings/preferences.html"
+		"default_popup": "toolbar_popup/popupWindow.html"
 		},
   
 	"content_scripts": [
@@ -74,7 +74,9 @@
 		"page": "settings/preferences.html"
 	},
   
-	"permissions": ["storage"],
+	"permissions": [
+		"storage"
+	],
   
 	"version": "0.2.0"
 
