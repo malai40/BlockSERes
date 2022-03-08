@@ -18,4 +18,5 @@ document.querySelector("#block-toggle").addEventListener("click", toggleBlocking
 var goButton = document.querySelector("#go-settings");
 goButton.addEventListener("click", () => {
     browser.runtime.openOptionsPage();
+    window.close();
 });
