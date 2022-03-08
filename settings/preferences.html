@@ -60,20 +60,25 @@
         		<p>
         			Select which search engines to block websites on.
         		</p>
+				<p>
+					(After making changes, don't just reload the page, click "Search" again to show the new effects.)
+				</p>
         	</header>
         	<section class="horiz-section">
-          		<h2></h2>
-          		<ul class="checklist" id="search-engine-list">
-            		<template>
-              			<button data-action="toggle-checked" role="checkbox" class="control-icon" type="button"></button>
-            		</template>
-            		<li role="checklistitem">
-						Google
-					</li>
-					<li role="checklistitem">
-						Bing
-					</li>
-          		</ul>
+          		<div class="save-button">
+					<input type="button" name="save" id="saveSE" value="Save" style="font-family:verdana">
+				</div>
+          		<form id="search-engine-list">
+          			<input type="checkbox" id="google" name="google" value="Google">
+          			<label for="google">
+          				Google (all domains)
+          			</label>
+          			<br>
+          			<input type="checkbox" id="bing" name="bing" value="Bing">
+          			<label for="bing">
+          				Bing
+          			</label>
+          		</form>
         	</section>
 		</div>
 	

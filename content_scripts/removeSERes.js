@@ -14,6 +14,10 @@ async function getBlockedSites() {
 		let response = await browser.storage.sync.get("blockedsites");
 		let sitestoblock = response.blockedsites;
 		var blockedSites = sitestoblock.split('\n');
+		
+		// See what engines are enabled for blocking
+		let responseSE = await browser.storage.sync.get("activeSE"); //Returns dictionary.
+		activeSE = responseSE.activeSE;
 
 		/*
 		// Testing only: Read in list of websites to block
@@ -32,14 +36,21 @@ async function getBlockedSites() {
 		// Get current URL. Where am I?
 		currUrl = window.location.href;
 		
+		
+		
+		
 		// Pick which blocking function to use depending on 
 		// // search engine currently loaded
 		if (/www.google.*\//.test(currUrl)) {
-			//Google:
-			googleBlock(0, blockedSites);
+			if (activeSE['google']) {
+				//Google:
+				googleBlock(0, blockedSites);
+			}
 		} else if (/www.bing.*\//.test(currUrl)) {
-			//Bing:
-			bingBlock(0, blockedSites);
+			if (activeSE['bing']) {
+				//Bing:
+				bingBlock(0, blockedSites);
+			}
 		} else if (/\/\/.duckduckgo.*\//.test(currUrl)) {
 			//DuckDuckGo:
 			// TODO

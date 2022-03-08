@@ -53,6 +53,49 @@ function restoreOptions() {
   
 }
 
+/* Save the list of websites to block */
+function saveOptionsSE(e) { //No hyphen allowed in function name
+  e.preventDefault();
+  
+  var form = document.querySelector('#search-engine-list'); 
+  var checkboxes = form.querySelectorAll('input[type=checkbox]');
+  
+  var vals = {};
+  
+  for (var i = 0; i < checkboxes.length; i++) {
+      vals[i] = checkboxes[i].id;
+      vals[vals[i]] = checkboxes[i].checked;
+  }
+  
+  browser.storage.sync.set({
+    activeSE: vals
+  });
+  
+}
+
+/* Load the list of websites to block from the last time */
+function restoreOptionsSE() {
+  
+  function setCurrentChoice(result) {
+  	var form = document.querySelector('#search-engine-list'); 
+    var checkboxes = form.querySelectorAll('input[type=checkbox]');
+    
+    for (var i = 0; i < checkboxes.length; i++) 
+    {
+    	checkboxes[i].checked = result.activeSE[checkboxes[i].id];
+    	//window.alert(checkboxes[i].id);
+    }
+  }
+
+  function onError(error) {
+    console.log(`Error: ${error}`);
+  }
+
+  let getting = browser.storage.sync.get("activeSE");
+  getting.then(setCurrentChoice, onError);
+  
+}
+
 /* Ready the navigation tab clicking */
 // Must not use inline JS "onclick" in html due to security restriction
 document.querySelectorAll(".sidetab-button").forEach(item => {
@@ -64,5 +107,9 @@ document.querySelectorAll(".sidetab-button").forEach(item => {
 document.getElementById("sidetab-button-searcheng").click();
 
 /* Ready the Save and Load functions */
+// document.addEventListener("DOMContentLoaded", function(){restoreOptions(section)});
 document.addEventListener("DOMContentLoaded", restoreOptions);
 document.querySelector("#save").addEventListener("click", saveOptions);
+
+document.addEventListener("DOMContentLoaded", restoreOptionsSE);
+document.querySelector("#saveSE").addEventListener("click", saveOptionsSE);

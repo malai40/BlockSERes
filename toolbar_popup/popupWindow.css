@@ -1,1 +1,25 @@
-/* TODO */
+/* Style background */
+body {
+	background-color: fcfcfc;
+	font-size: x-small;
+}
+
+/* Style h1 */
+h1 {
+	font-family: Futura, Calibri, Helvetica;
+}
+
+/* Style the "Options" button */
+.settings-button input {
+  background-color: #e5e5e5;
+  border: none; /* Default has black border */
+  cursor: pointer;
+  padding: 15px 15px;
+  transition: 0.3s;
+  border-radius: 10px; /* Rounds corners */
+}
+
+/* Change background color of button on hover */
+.settings-button input:hover {
+	background-color: #bbbbbb;
+}
